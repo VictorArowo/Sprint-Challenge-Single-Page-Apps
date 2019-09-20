@@ -2,13 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import CharacterCard from './CharacterCard';
 
-export default function CharacterList() {
-  const [characterData, setCharacterData] = useState(null);
-
+export default function CharacterList({ characterData, setCharacterData }) {
+  let url = 'https://rickandmortyapi.com/api/character/';
   useEffect(() => {
-    Axios.get('https://rickandmortyapi.com/api/character/').then(res =>
-      setCharacterData(res.data)
-    );
+    Axios.get(url).then(res => setCharacterData(res.data));
   }, []);
 
   return (
