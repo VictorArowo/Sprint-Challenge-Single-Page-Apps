@@ -25,9 +25,19 @@ export default function App() {
 
   return (
     <main>
-      <Header />
-      <SearchForm onChange={onChange} onSubmit={onSubmit} query={searchQuery} />
-      <Route path="/" exact component={WelcomePage} />
+      <Route path="/" component={WelcomePage} />
+
+      <Route
+        path="/characters"
+        render={props => (
+          <SearchForm
+            {...props}
+            onChange={onChange}
+            onSubmit={onSubmit}
+            query={searchQuery}
+          />
+        )}
+      />
       <Route
         path="/characters"
         render={props => (
