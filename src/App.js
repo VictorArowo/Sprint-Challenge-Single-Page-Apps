@@ -5,10 +5,12 @@ import WelcomePage from './components/WelcomePage';
 import CharacterList from './components/CharacterList.js';
 import SearchForm from './components/SearchForm.js';
 import Axios from 'axios';
+import LocationsList from './components/LocationsList';
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [characterData, setCharacterData] = useState(null);
+  const [locationData, setLocationData] = useState(null);
 
   const onChange = e => {
     setSearchQuery(e.target.value);
@@ -33,6 +35,16 @@ export default function App() {
             {...props}
             characterData={characterData}
             setCharacterData={setCharacterData}
+          />
+        )}
+      />
+      <Route
+        path="/locations"
+        render={props => (
+          <LocationsList
+            {...props}
+            locationData={locationData}
+            setLocationData={setLocationData}
           />
         )}
       />
